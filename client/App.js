@@ -60,6 +60,13 @@ class App extends Component {
     this.setState({ name });
     socket.emit("join", name);
   }
+
+  handleMessageSubmit(message) {
+    const messages = [message, ...this.state.messages];
+    this.setState({messages});
+    socket.emit('message', message);
+  }
+
 }
 
 export default App;
